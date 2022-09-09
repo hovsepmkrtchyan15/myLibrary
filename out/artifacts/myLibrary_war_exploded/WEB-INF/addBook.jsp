@@ -13,23 +13,30 @@
     <title>Add Book Page</title>
 </head>
 <body>
-
-<%
-  List<Author> authors = (List<Author>) request.getAttribute("authors");
-%>
-
-<form action="/book/add" , method="post">
-  <input type="text" name="title" placeholder="Please input title"/><br>
-  <input type="text" name="description" placeholder="Please input description"/><br>
-  <input type="number" name="price" placeholder="Please input price"/><br>
-  <select name="authorId">
+<div>
+  <div style="width: 1000px; height: 300px; margin: 0 auto"><img src="/images/bookPage.png" ></div>
+  <div>
     <%
-      for (Author author : authors) {%>
-    <option value="<%=author.getId()%>" ><%=author.getName()%> <%=author.getSurname()%> </option>
-    <%}%>
+      List<Author> authors = (List<Author>) request.getAttribute("authors");
+    %>
 
-  </select>
-  <input type="submit" value="REGISTER">
-</form>
+    <form action="/book/add" , method="post", enctype="multipart/form-data">
+      <input type="text" name="title" placeholder="Please input title"/><br>
+      <input type="text" name="description" placeholder="Please input description"/><br>
+      <input type="number" name="price" placeholder="Please input price"/><br>
+      <select name="authorId">
+        <%
+          for (Author author : authors) {%>
+        <option value="<%=author.getId()%>"> <%=author.getName()%> <%=author.getSurname()%> </option>
+        <%}%>
+
+      </select><br>
+      <input type="file" name="bookPic"><br>
+      <input type="submit" value="REGISTER">
+    </form>
+  </div>
+</div>
+
+
 </body>
 </html>

@@ -17,6 +17,7 @@
 %>
 <table border="1">
     <tr>
+        <td>image</td>
         <th>id</th>
         <th>name</th>
         <th>surname</th>
@@ -27,6 +28,13 @@
     <% for (Author author : authors) {
     %>
     <tr>
+        <td>
+            <% if (author.getAuthorPic() == null || author.getAuthorPic().length() == 0) {%>
+            <img src="/images/authorDefaultAvatar.png" width="80">
+            <%} else {%>
+            <img src="/getImage?authorPic=<%=author.getAuthorPic()%>" width="80">
+            <%}%>
+        </td>
         <td><%=author.getId()%>
         </td>
         <td><%=author.getName()%>

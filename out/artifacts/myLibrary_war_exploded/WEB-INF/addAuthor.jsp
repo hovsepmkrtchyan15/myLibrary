@@ -11,12 +11,12 @@
     <title>Add Author Page</title>
 </head>
 <body>
-<form action="/author/add" , method="post">
+<form action="/author/add", method="post", enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Please input name"/><br>
     <input type="text" name="surname" placeholder="Please input surname"/><br>
     <input type="email" name="email" placeholder="Please input email"/><br>
     <input type="number" name="age" placeholder="Please input age"/><br>
-
+    <input type="file" name="authorPic">
     <input type="submit" value="ADD">
 </form>
 </body>

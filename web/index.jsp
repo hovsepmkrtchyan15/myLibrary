@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.User" %><%--
   Created by IntelliJ IDEA.
   User: Hoso
   Date: 04.09.2022
@@ -10,11 +10,25 @@
 <head>
     <title>Home Page</title>
 </head>
+<%User user = (User) session.getAttribute("user");%>
+
 <body>
- MY LIBRARY<br>
+MY LIBRARY<br>
+
 <a href="/authors">Show All Authors</a>
-<a href="/author/add">Add Authors</a>
 <a href="/books">Show All Books</a>
-<a href="/book/add">Add Books</a>
+
+<%if (user != null) {%>
+<a href="/author/add">Add Authors</a>
+<a href="/book/add">Add Books</a> <br>
+<a href="/logout">LOGOUT</a>
+<%}%>
+
+<%if (user == null) {%>
+<a href="/register"> USER REGISTER</a>
+<a href="/login"> LOGIN</a>
+<%}%>
+
+
 </body>
 </html>
